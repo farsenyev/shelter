@@ -1,12 +1,7 @@
-html{
-    height: 100%;
-}
 body{
     position: relative;
     width: 1280px;
-    height: 1812px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 header{
@@ -235,8 +230,24 @@ nav{
 
     /* color-dark-s */
 
+    border-radius: 100px;
+}
+#nav-bar-number{
+    background: #F1CDB3;
+    font-family: 'Georgia', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+}
+.nav-bar-active{
+    background: #fff;
+    border: 2px solid #F1CDB3;
+}
+.nav-bar-inactive{
     border: 2px solid #CDCDCD;
     border-radius: 100px;
+    color: #CDCDCD;
 }
 
 
@@ -469,4 +480,8 @@ animations
 .pet-card:hover button{
     background: #F1CDB3;
     cursor: pointer;
+}
+.nav-bar-active:hover{
+    border: #FDDCC4;
+    background: #FDDCC4;
 }

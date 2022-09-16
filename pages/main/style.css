@@ -1,8 +1,7 @@
 body{
     position: relative;
-    width: 1280px;
-    height: 3796px;
-    margin: 0 auto ;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
 #header{
@@ -11,7 +10,7 @@ body{
     height: 60px;
     left: calc(50% - 1200px/2);
     top: 60px;
-    z-index: 2  ;
+    z-index: 1;
 }
 #logo{
     position: absolute;
@@ -77,6 +76,7 @@ body{
     color: #FAFAFA;
     border-bottom: solid 3px #F1CDB3;
 }
+
 #start-screen{
     position: absolute;
     width: 100%;
@@ -269,7 +269,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 3;
+    z-index: 1;
 }
 #rotate-arrow{
     transform: rotate(180deg);
@@ -297,7 +297,7 @@ body{
     border-radius: 100px;
     border: #F1CDB3 2px solid;
 
-    z-index: 3;
+    z-index: 2;
 }
 .pet-name{
     position: absolute;
@@ -591,7 +591,6 @@ body{
     right: 0;
     top: 3446px;
     background: url("/assets/images/footer-background.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%) , #211F20;
-    /*z-index: -1;*/
 }
 #footer-content{
 
@@ -799,6 +798,129 @@ body{
     top: 0;
 }
 
+.modal{
+    margin-left: auto;
+    margin-right: auto;
+    
+    visibility: hidden;
+    z-index: 4;
+    border-radius: 9px 0 0 9px;
+    
+    position: relative;
+    width: 952px;
+    height: 552px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.close-button{
+    box-sizing: border-box;
+
+    width: 52px;
+    height: 52px;
+
+    /* color-primary */
+
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;
+
+    align-self: flex-end;
+}
+.modal-content{
+    width: 900px;
+    height: 500px;
+
+    background: #ffffff;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+.modal-about{
+    width: 351px;
+    height: 362px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.modal-heading{
+    /* Jennifer */
+
+
+    height: 45px;
+
+    /* h3 */
+
+    font-family: 'Georgia', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 130%;
+    /* or 45px */
+
+    letter-spacing: 0.06em;
+
+    color: #000000;
+}
+.modal-type{
+    /* Dog - Labrador */
+
+
+    height: 23px;
+
+    /* h4 */
+
+    font-family: 'Georgia', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    /* identical to box height, or 23px */
+
+    letter-spacing: 0.06em;
+
+    color: #000000;
+}
+.modal-text{
+    width: 350px;
+    height: 102px;
+
+    /* h5 */
+
+    font-family: 'Georgia', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    /* or 17px */
+
+    letter-spacing: 0.06em;
+
+    color: #000000;
+}
+.modal-list{
+    height: 102px;
+
+    padding-left: 20px;
+}
+.modal-img{
+    height: 100%;
+}
+
+
+#shadow-block{
+    background: rgba(41, 41, 41, 0.6);
+    visibility: hidden;
+    height: 100px;
+    width: 100%;
+    visibility: hidden;
+    z-index: 3;
+}
+
 /*-----------------------------------
 animations
 -----------------------------------*/
@@ -831,4 +953,7 @@ animations
 }
 #donat-button:hover{
     background: #FDDCC4;
+}
+.close-button:hover{
+    background: #F1CDB3;
 }

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Main</title>
     <script src="script.js" rel="script"></script>
     <link rel="stylesheet" href="/pages/main/style.css">
@@ -16,7 +18,7 @@
         </section>
         <nav id="nav-menu">
             <a href="#about" class="a-nav-menu activated">About the shelter</a>
-            <a href="/pages/pets/pets.html" class="a-nav-menu">Our pets</a>
+            <a href="../pets/pets.html" class="a-nav-menu">Our pets</a>
             <a href="#help" class="a-nav-menu">Help the shelter</a>
             <a href="#footer" class="a-nav-menu">Contacts</a>
         </nav>
@@ -60,8 +62,8 @@
                     <h4 class="pet-name">Katrine</h4>
                     <img src="../../assets/images/pets-katrine.png" alt="cat Katrine" class="pet-img">
                 </section>
-                <section class="card">
-                    <button class="pets-learn-more">Learn more</button>
+                <section class="card" onclick="showModal()">
+                    <button class="pets-learn-more" id="lm-jen">Learn more</button>
                     <h4 class="pet-name">Jenifer</h4>
                     <img src="../../assets/images/pets-jennifer.png" alt="puppy Jenifer" class="pet-img">
                 </section>
@@ -74,7 +76,24 @@
                     <p>&#10142;</p>
                 </button>
             </section>
-            <button id="pets-button" onclick="location.href='/pages/pets/pets.html'" type="button">Get ot know the rest</button>
+            <button id="pets-button" onclick="location.href='../pets/pets.html'" type="button">Get ot know the rest</button>
+            <section class="modal" id="modal-jenifer">
+                <button class="close-button" onclick="hideModal()">X</button>
+                <section class="modal-content">
+                    <article class="modal-about">
+                        <h3 class="modal-heading">Jenifer</h3>
+                        <h4 class="modal-type">Dog - Labrador</h4>
+                        <h5 class="modal-text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</h5>
+                        <ul class="modal-list">
+                            <li class="list-element"><b>Age:</b> 2 months</li>
+                            <li class="list-element"><b>Inoculation:</b> none</li>
+                            <li class="list-element"><b>Diseases:</b> none</li>
+                            <li class="list-element"><b>Parasites:</b> none</li>
+                        </ul>
+                    </article>
+                    <img src="../../assets/images/pets-jennifer.png" alt="cute puppy" class="modal-img">
+                </section>
+            </section>
         </article>
     </section>
     <section id="help">
