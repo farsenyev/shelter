@@ -390,6 +390,7 @@
     .card-list {
         width: 1026px;
         height: 281px;
+
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -399,7 +400,7 @@
     .help-list-item {
         width: 82px;
         height: 125px;
-        margin: 2% 0;
+        margin: 20px 60px;
 
         display: flex;
         flex-direction: column;
@@ -786,8 +787,9 @@
         position: absolute;
         width: 300px;
         height: 310px;
-        left: calc(50% - 300px / 2 + 450px);
-        top: 0;
+        left: calc(50% - 300px/2 + 450px);
+        top: 40px;
+
     }
 
     .modal {
@@ -901,6 +903,7 @@
     }
     .modal-img {
         height: 100%;
+
     }
 
     #shadow-block {
@@ -1363,6 +1366,9 @@
         align-items: center;
         white-space: nowrap;
     }
+    .help-list-img{
+        height: 60px;
+    }
     .help-list-text{
         font-family: 'Georgia', serif;
         font-style: normal;
@@ -1377,10 +1383,10 @@
         letter-spacing: 0.06em;
 
         color: #545454;
+
+        margin-top: 30px;
     }
-    .help-list-img{
-        height: 60px;
-    }
+
 
     #donation {
         position: absolute;
@@ -1501,11 +1507,12 @@
     #footer-content{
         width: 708px;
         height: 606px;
+        margin-top: 30px;
 
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         flex-wrap: wrap;
     }
     #footer-contacts{
