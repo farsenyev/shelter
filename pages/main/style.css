@@ -1357,7 +1357,7 @@
     }
     .help-list-item{
         width: 170px;
-        height: 120px;
+        /*height: 120px;*/
         margin: 2% 0;
 
         display: flex;
@@ -1414,6 +1414,7 @@
     #donat-heading{
         width: 300px;
         height: 90px;
+        margin-top: 0;
 
         font-family: 'Georgia', serif;
         font-style: normal;
@@ -1485,6 +1486,7 @@
         font-weight: 400;
         font-size: 12px;
         line-height: 18px;
+        margin-top: 20px;
 
         display: flex;
         align-items: center;
