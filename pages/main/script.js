@@ -9,3 +9,4 @@ function hideModal () {
     document.getElementById('modal-jenifer').style.visibility = 'hidden'
     document.getElementById('shadow-block').style.visibility = 'hidden'
 }
+
