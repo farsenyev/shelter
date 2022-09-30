@@ -82,3 +82,54 @@
 .activated{
     border-bottom: solid 3px #F1CDB3;
 }
+
+
+
+
+.card{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 270px;
+    /*height: 435px;*/
+}
+.pet-name{
+    font-family: 'Georgia', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.06em;
+
+    color: #545454;
+}
+.pets-learn-more {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 45px;
+    gap: 10px;
+
+    width: 187px;
+    height: 52px;
+
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.pet-img {
+    border-radius: 9px 9px 0 0;
+
+    z-index: 1;
+}

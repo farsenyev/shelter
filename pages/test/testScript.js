@@ -1,3 +1,5 @@
+
+
 const burgerButton = document.querySelector('#burger-button')
 const menuShow = document.querySelector('#burger')
 const burgerContainer = document.querySelector('#burger-container')
@@ -9,7 +11,36 @@ console.log(menuShow)
 burgerButton.onclick = function () {
     burgerButton.classList.toggle("b-button-close")
     burgerButton.classList.toggle("b-button")
+
     menuShow.classList.toggle("nav-show")
     menuShow.classList.toggle("nav-hide")
+
     burgerContainer.classList.toggle("bc-open")
 }
+
+
+
+
+
+
+
+
+//--------------card filler-------------
+
+//-------------json connect-------------
+
+let petsJson = '';
+fetch('../../assets/json/pets.json')
+    .then((response) => response.json())
+    .then((data) => petsJson = data)
+
+//----------------filler----------------
+
+let card = document.querySelector('.card')
+let petName = document.querySelector('.pet-name')
+let petImg = document.querySelector('.pet-img')
+
+//petsJson is object
+
+
+

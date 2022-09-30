@@ -286,10 +286,20 @@
 
         display: flex;
         flex-direction: column-reverse;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
     }
     .pets-learn-more {
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 130%;
+
+        letter-spacing: 0.06em;
+
+        color: #292929;
+
         padding: 0;
 
         width: 187px;
@@ -298,6 +308,9 @@
         background: #ffffff;
         border-radius: 100px;
         border: #F1CDB3 2px solid;
+
+        white-space: nowrap;
+
 
     }
     .pet-name {
@@ -328,6 +341,16 @@
         z-index: 1;
     }
     #pets-button {
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 130%;
+
+        letter-spacing: 0.06em;
+
+        color: #292929;
+
         padding: 15px 45px;
         gap: 10px;
         margin-top: 60px;
@@ -338,6 +361,8 @@
         background: #F1CDB3;
         border-radius: 100px;
         border: #F1CDB3;
+
+        white-space: nowrap;
     }
 
     #help {
@@ -1088,9 +1113,12 @@
     #pets {
         height: 877px;
 
-        /* color-light-l */
-
         background: #F6F6F6;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
     #pets-content {
@@ -1130,7 +1158,6 @@
         justify-content: space-between;
         align-items: center;
     }
-
     .rotate-arrow {
         transform: rotate(180deg);
     }
@@ -1143,6 +1170,7 @@
         width: 52px;
         height: 52px;
 
+        background: #F6F6F6;
         border: 2px solid #F1CDB3;
         border-radius: 100px;
         display: flex;
@@ -1160,8 +1188,10 @@
 
         display: flex;
         flex-direction: column-reverse;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
+
+
     }
 
     .card-hidden {
@@ -1169,6 +1199,16 @@
     }
 
     .pets-learn-more {
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 130%;
+
+        letter-spacing: 0.06em;
+
+        color: #292929;
+
         box-sizing: border-box;
 
         display: flex;
@@ -1180,12 +1220,16 @@
         width: 187px;
         height: 52px;
 
+        background: #ffffff;
         border: 2px solid #F1CDB3;
         border-radius: 100px;
 
         flex: none;
         order: 0;
         flex-grow: 0;
+
+        white-space: nowrap;
+
     }
 
     .pet-name {
@@ -1213,6 +1257,16 @@
     }
 
     #pets-button {
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 130%;
+
+        letter-spacing: 0.06em;
+
+        color: #292929;
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1226,6 +1280,8 @@
         background: #F1CDB3;
         border-radius: 100px;
         border: #F1CDB3;
+
+        white-space: nowrap;
     }
 
     .modal {
@@ -1891,19 +1947,16 @@
     }
     #pets-slider{
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-    .buttons-320{
-        margin-bottom: 42px;
-
-        display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+
+        flex-wrap: wrap;
     }
+
     .pets-arrow-button {
-        visibility: hidden;
+        margin-top: 20px;
+        order: 2;
 
         box-sizing: border-box;
 
@@ -1912,6 +1965,7 @@
         width: 52px;
         height: 52px;
 
+        background: #F6F6F6;
         border: 2px solid #F1CDB3;
         border-radius: 100px;
         display: flex;
@@ -1919,27 +1973,21 @@
         justify-content: center;
         z-index: 1;
     }
-    .arrow-320{
-        box-sizing: border-box;
 
-        padding: 23px 19px;
-
-        width: 52px;
-        height: 52px;
-
-        background: #fff;
-
-        border: 2px solid #F1CDB3;
-        border-radius: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        z-index: 1;
-    }
     .rotate-arrow{
         transform: rotate(180deg);
     }
     #pets-button {
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 130%;
+
+        letter-spacing: 0.06em;
+
+        color: #292929;
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1953,15 +2001,18 @@
         background: #F1CDB3;
         border-radius: 100px;
         border: #F1CDB3;
+
+        white-space: nowrap;
     }
     .card{
         display: flex;
         flex-direction: column-reverse;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
 
         width: 270px;
-        /*height: 435px;*/
+        height: 435px;
+        background: #FAFAFA;
     }
     .pet-name{
         font-family: 'Georgia', serif;
@@ -1978,6 +2029,16 @@
         color: #545454;
     }
     .pets-learn-more{
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 130%;
+
+        letter-spacing: 0.06em;
+
+        color: #292929;
+
         box-sizing: border-box;
 
         display: flex;
@@ -1991,10 +2052,14 @@
 
         border: 2px solid #F1CDB3;
         border-radius: 100px;
+        background: #ffffff;
 
         flex: none;
         order: 0;
         flex-grow: 0;
+
+        white-space: nowrap;
+
     }
     .hidden-320{
         display: none;
