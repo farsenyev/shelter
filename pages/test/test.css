@@ -83,8 +83,18 @@
     border-bottom: solid 3px #F1CDB3;
 }
 
-
-
+.card{
+    width: 300px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+#card-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
 .card{
     display: flex;
