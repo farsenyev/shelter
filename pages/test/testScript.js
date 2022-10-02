@@ -126,18 +126,38 @@ let petsJson = [
 
 //----------------filler----------------
 
-let card = document.getElementsByClassName('card')
-let petName = document.getElementsByClassName('pet-name')
-let petImg = document.getElementsByClassName('pet-img')
+// let card = document.getElementsByClassName('card')
+// let petName = document.getElementsByClassName('pet-name')
+// let petImg = document.getElementsByClassName('pet-img')
 
 //petsJson is object
 
-for (let i = 0; i < card.length; i++){
-    petName[i].innerHTML = petsJson[i]['name']
-    let petImgFill = petsJson[i]['img']
-    petImg[i].setAttribute('src', petImgFill)
-    petImg[i].setAttribute('alt', petsJson[i]['type'] + ' ' +  petsJson[i]['name'])
+// for (let i = 0; i < card.length; i++){
+//     petName[i].innerHTML = petsJson[i]['name']
+//     let petImgFill = petsJson[i]['img']
+//     petImg[i].setAttribute('src', petImgFill)
+//     petImg[i].setAttribute('alt', petsJson[i]['type'] + ' ' +  petsJson[i]['name'])
+// }
+
+//---------------card filler 2.0----------------
+
+let petContainer = document.getElementById('card-container')
+
+for (let i = 0; i < petsJson.length; i++){
+    let card = document.createElement("section")
+    card.classList.toggle('card')
+    let petImg = document.createElement('img')
+    petImg.classList.toggle('pet-img')
+    petImg.setAttribute('src', petsJson[i]['img'])
+    petImg.setAttribute('alt', petsJson[i]['type'] + ' ' +  petsJson[i]['name'])
+    let petName = document.createElement('h4')
+    petName.classList.toggle('pet-name')
+    petName.innerHTML = petsJson[i]['name']
+    let petButton = document.createElement('button')
+    petButton.classList.toggle('pets-learn-more')
+    petButton.innerHTML = 'Learn more'
+    petContainer.append(card)
+    card.append(petImg)
+    card.append(petName)
+    card.append(petButton)
 }
-
-
-// console.log(pet)

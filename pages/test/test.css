@@ -4,11 +4,12 @@
 
 #burger-container{
     width: 320px;
-    position: relative;
+    position: fixed;
 }
 .bc-open{
     background: #292929;
     min-height: 250px;
+    z-index: 3;
 }
 #burger-button{
     width: 30px;
@@ -63,6 +64,7 @@
 .nav-show{
     visibility: visible;
     text-align: center;
+    z-index: 4;
 }
 .nav-hide{
     visibility: hidden;
@@ -83,27 +85,28 @@
     border-bottom: solid 3px #F1CDB3;
 }
 
-.card{
-    width: 300px;
-    margin-left: 20px;
-    margin-top: 20px;
-}
+
 #card-container{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    z-index: 0;
+    width: 1200px;
+
+    margin: 0 auto;
 }
 
 .card{
     display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 
     width: 270px;
-    /*height: 435px;*/
+    height: 435px;
 }
 .pet-name{
     font-family: 'Georgia', serif;
@@ -120,6 +123,14 @@
     color: #545454;
 }
 .pets-learn-more {
+    font-family: 'Georgia', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 130%;
+    white-space: nowrap;
+    letter-spacing: 0.06em;
+
     box-sizing: border-box;
 
     display: flex;
