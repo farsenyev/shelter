@@ -145,19 +145,66 @@ let petContainer = document.getElementById('card-container')
 
 for (let i = 0; i < petsJson.length; i++){
     let card = document.createElement("section")
-    card.classList.toggle('card')
+    card.classList.add('card')
+    if (i > 1){
+        card.classList.toggle('inactive-card')
+    }
     let petImg = document.createElement('img')
-    petImg.classList.toggle('pet-img')
-    petImg.setAttribute('src', petsJson[i]['img'])
-    petImg.setAttribute('alt', petsJson[i]['type'] + ' ' +  petsJson[i]['name'])
+    petImg.classList.add('pet-img')
+    petImg.setAttribute('src', petsJson[i].img)
+    petImg.setAttribute('alt', petsJson[i].type + ' ' +  petsJson[i].name)
     let petName = document.createElement('h4')
-    petName.classList.toggle('pet-name')
-    petName.innerHTML = petsJson[i]['name']
+    petName.classList.add('pet-name')
+    petName.textContent = petsJson[i].name
     let petButton = document.createElement('button')
-    petButton.classList.toggle('pets-learn-more')
-    petButton.innerHTML = 'Learn more'
-    petContainer.append(card)
+    petButton.classList.add('pets-learn-more')
+    petButton.textContent = 'Learn more'
     card.append(petImg)
     card.append(petName)
     card.append(petButton)
+    petContainer.append(card)
+
+}
+
+
+//-----------------slider v1.0----------
+
+let cards = document.getElementsByClassName('card')
+
+let listNumber = document.querySelector('#nav-bar-number')
+
+listNumber.textContent = '1'
+let j = 1
+let buttonRight = document.querySelector('#nav-bar-right')
+buttonRight.onclick = function scrollRight () {
+    listNumber.textContent = String(j+1)
+    cards.item(j-1).classList.toggle('inactive-card')
+    cards.item(j).classList.toggle('inactive-card')
+    cards.item(j+1).classList.toggle('inactive-card')
+    cards.item(j+2).classList.toggle('inactive-card')
+    j ++
+    if (j >= 4){
+        buttonRight.classList.add('nav-bar-inactive')
+    }else if( j < 4 && j > 0) {
+        buttonRight.classList.remove('nav-bar-inactive')
+        buttonLeft.classList.remove('nav-bar-inactive')
+    }
+}
+let buttonLeft = document.querySelector('#nav-bar-left')
+buttonLeft.onclick = function scrollLeft () {
+    listNumber.textContent = String(j-1)
+    cards.item(j+1).classList.toggle('inactive-card')
+    cards.item(j).classList.toggle('inactive-card')
+    cards.item(j-1).classList.toggle('inactive-card')
+    cards.item(j-2).classList.toggle('inactive-card')
+    j --
+    if (j > 1){
+        buttonLeft.classList.remove('nav-bar-inactive')
+    }else{
+        buttonLeft.classList.add('nav-bar-inactive')
+    }
+    if (j < 4 && j > 0){
+        buttonRight.classList.remove('nav-bar-inactive')
+
+    }
 }

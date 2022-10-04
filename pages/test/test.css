@@ -95,6 +95,7 @@
     z-index: 0;
     width: 1200px;
 
+
     margin: 0 auto;
 }
 
@@ -107,6 +108,7 @@
 
     width: 270px;
     height: 435px;
+
 }
 .pet-name{
     font-family: 'Georgia', serif;
@@ -153,4 +155,43 @@
     border-radius: 9px 9px 0 0;
 
     z-index: 1;
+}
+.inactive-card{
+    display: none;
+}
+
+
+#navigation-bar{
+    width: 340px;
+    height: 52px;
+    margin: 20px auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-bar-pets{
+    box-sizing: border-box;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 100px;
+    background: #fff;
+    border: 2px solid #F1CDB3;
+}
+#nav-bar-number{
+    background: #F1CDB3;
+    font-family: 'Georgia', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+}
+
+.nav-bar-inactive{
+    border: 2px solid #CDCDCD;
+    border-radius: 100px;
+    color: #CDCDCD;
 }
