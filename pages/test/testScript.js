@@ -128,7 +128,7 @@ window.onload = function () {
         petImg.setAttribute('alt', petsJson[i].type + ' ' +  petsJson[i].name)
         let petName = document.createElement('h4')
         petName.classList.add('pet-name')
-        petName.textContent = petsJson[i].name + " '" + i + "'"
+        petName.textContent = petsJson[i].name
         let petButton = document.createElement('button')
         petButton.classList.add('pets-learn-more')
         petButton.textContent = 'Learn more'
@@ -146,27 +146,29 @@ window.onload = function () {
     let listNumber = document.querySelector('#nav-bar-number')
 
     let j = 2
-    let num = 1
-    listNumber.textContent = String(num)
+    listNumber.textContent = String(j / 2)
     let buttonRight = document.querySelector('#nav-bar-right')
     buttonRight.onclick = function scrollRight () {
 
-        num ++
 
-        listNumber.textContent = String(num)
         if (j >= 2){
             cards.item(j).classList.remove('inactive-card')
             cards.item(j+1).classList.remove('inactive-card')
             cards.item(j-1).classList.add('inactive-card')
             cards.item(j-2).classList.add('inactive-card')
-
         }
+
         j += 2
+        listNumber.textContent = String(j / 2)
         if (j >= 8){
             buttonRight.classList.add('nav-bar-inactive')
-        }else if( j < 8 && j > 0) {
+            buttonRight.disabled = true
+        }
+        if( j < 8 && j > 0) {
             buttonRight.classList.remove('nav-bar-inactive')
+            buttonRight.disabled = false
             buttonLeft.classList.remove('nav-bar-inactive')
+            buttonLeft.disabled = false
         }
     }
 
@@ -175,8 +177,7 @@ window.onload = function () {
     buttonLeft.onclick = function scrollLeft () {
         j -= 2
 
-        num--
-        listNumber.textContent = String(num)
+        listNumber.textContent = String(j / 2)
         if (j >= 2) {
             cards.item(j).classList.add('inactive-card')
             cards.item(j + 1).classList.add('inactive-card')
@@ -184,11 +185,15 @@ window.onload = function () {
             cards.item(j - 2).classList.remove('inactive-card')
 
         }
-        if (num <= 1) {
+        if (j <= 2) {
             buttonLeft.classList.add('nav-bar-inactive')
-        } else if (num > 1 && num <= 4) {
+            buttonLeft.disabled = true
+        }
+        if (j > 2 && j <= 8) {
             buttonRight.classList.remove('nav-bar-inactive')
+            buttonRight.disabled = false
             buttonLeft.classList.remove('nav-bar-inactive')
+            buttonLeft.disabled = false
         }
 
     }
