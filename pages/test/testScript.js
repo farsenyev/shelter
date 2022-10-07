@@ -148,10 +148,17 @@ window.onload = function () {
     let j = 2
     listNumber.textContent = String(j / 2)
     let buttonRight = document.querySelector('#nav-bar-right')
+    let buttonLeft = document.querySelector('#nav-bar-left')
+
+    //for endless scroll
+    buttonLeft.classList.remove('nav-bar-inactive')
+    listNumber.hidden = true
+    //------------------
+
     buttonRight.onclick = function scrollRight () {
 
 
-        if (j >= 2){
+        if (j >= 2 && j < 8){
             cards.item(j).classList.remove('inactive-card')
             cards.item(j+1).classList.remove('inactive-card')
             cards.item(j-1).classList.add('inactive-card')
@@ -160,20 +167,31 @@ window.onload = function () {
 
         j += 2
         listNumber.textContent = String(j / 2)
-        if (j >= 8){
-            buttonRight.classList.add('nav-bar-inactive')
-            buttonRight.disabled = true
+
+        //---------endless scroll right-------------
+        if (j > 8){
+            j = 2
+            cards.item(0).classList.remove('inactive-card')
+            cards.item(1).classList.remove('inactive-card')
+            cards.item(6).classList.add('inactive-card')
+            cards.item(7).classList.add('inactive-card')
         }
-        if( j < 8 && j > 0) {
-            buttonRight.classList.remove('nav-bar-inactive')
-            buttonRight.disabled = false
-            buttonLeft.classList.remove('nav-bar-inactive')
-            buttonLeft.disabled = false
-        }
+        //------------------------------------------
+
+        // if (j >= 8){
+        //     buttonRight.classList.add('nav-bar-inactive')
+        //     buttonRight.disabled = true
+        // }
+        // if( j < 8 && j > 0) {
+        //     buttonRight.classList.remove('nav-bar-inactive')
+        //     buttonRight.disabled = false
+        //     buttonLeft.classList.remove('nav-bar-inactive')
+        //     buttonLeft.disabled = false
+        // }
     }
 
 
-    let buttonLeft = document.querySelector('#nav-bar-left')
+
     buttonLeft.onclick = function scrollLeft () {
         j -= 2
 
@@ -185,17 +203,29 @@ window.onload = function () {
             cards.item(j - 2).classList.remove('inactive-card')
 
         }
-        if (j <= 2) {
-            buttonLeft.classList.add('nav-bar-inactive')
-            buttonLeft.disabled = true
+
+        //--------endless scroll left--------
+        if (j < 2){
+            j = 8
+            cards.item(0).classList.add('inactive-card')
+            cards.item(1).classList.add('inactive-card')
+            cards.item(6).classList.remove('inactive-card')
+            cards.item(7).classList.remove('inactive-card')
         }
-        if (j > 2 && j <= 8) {
-            buttonRight.classList.remove('nav-bar-inactive')
-            buttonRight.disabled = false
-            buttonLeft.classList.remove('nav-bar-inactive')
-            buttonLeft.disabled = false
-        }
+        //------------------------------------
+
+        // if (j <= 2) {
+        //     buttonLeft.classList.add('nav-bar-inactive')
+        //     buttonLeft.disabled = true
+        // }
+        // if (j > 2 && j <= 8) {
+        //     buttonRight.classList.remove('nav-bar-inactive')
+        //     buttonRight.disabled = false
+        //     buttonLeft.classList.remove('nav-bar-inactive')
+        //     buttonLeft.disabled = false
+        // }
 
     }
+
 
 }
