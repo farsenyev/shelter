@@ -22,7 +22,7 @@ window.onload = function () {
 
 //-------------json connect-------------
 
-    let petsJson = [
+    const petsJson = [
         {
             "name": "Jennifer",
             "img": "../../assets/images/pets-jennifer.png",
@@ -112,24 +112,32 @@ window.onload = function () {
             "parasites": ["lice", "fleas"]
         }
     ];
+
+//--------------randomizer--------------
+
+    function getRandom(list, items = 8){
+        return [...list].sort(() => Math.random() > 0.5 ? 1 : -1).slice(0, items)
+    }
+
 //---------------card filler 2.0----------------
 
-    let petContainer = document.getElementById('card-container')
+    const petContainer = document.getElementById('card-container')
+    const random  = getRandom(petsJson)
 
     for (let i = 0; i < petsJson.length; i++){
-        let card = document.createElement("section")
+        const card = document.createElement("section")
         card.classList.add('card')
         if (i > 1){
             card.classList.toggle('inactive-card')
         }
-        let petImg = document.createElement('img')
+        const petImg = document.createElement('img')
         petImg.classList.add('pet-img')
-        petImg.setAttribute('src', petsJson[i].img)
-        petImg.setAttribute('alt', petsJson[i].type + ' ' +  petsJson[i].name)
-        let petName = document.createElement('h4')
+        petImg.setAttribute('src', random[i].img)
+        petImg.setAttribute('alt', random[i].type + ' ' +  random[i].name)
+        const petName = document.createElement('h4')
         petName.classList.add('pet-name')
-        petName.textContent = petsJson[i].name
-        let petButton = document.createElement('button')
+        petName.textContent = random[i].name
+        const petButton = document.createElement('button')
         petButton.classList.add('pets-learn-more')
         petButton.textContent = 'Learn more'
         card.append(petImg)
@@ -141,89 +149,95 @@ window.onload = function () {
 
 //-----------------slider v1.0----------
 
-    let cards = document.getElementsByClassName('card')
+    const cards = document.getElementsByClassName('card')
 
-    let listNumber = document.querySelector('#nav-bar-number')
+    const listNumber = document.querySelector('#nav-bar-number')
 
-    let j = 2
-    listNumber.textContent = String(j / 2)
-    let buttonRight = document.querySelector('#nav-bar-right')
-    let buttonLeft = document.querySelector('#nav-bar-left')
+    let pageSize = 0
+    let cardValue = 0
 
-    //for endless scroll
-    buttonLeft.classList.remove('nav-bar-inactive')
-    listNumber.hidden = true
+    //if window screen width, change pageSize and cardValue
+    pageSize = 2
+    cardValue = 2
+
+    listNumber.textContent = String(Math.floor(cardValue / 2))
+    const buttonRight = document.querySelector('#nav-bar-right')
+    const buttonLeft = document.querySelector('#nav-bar-left')
+
+    //-------for endless scroll-------
+    // buttonLeft.classList.remove('nav-bar-inactive')
+    // listNumber.hidden = true
     //------------------
 
     buttonRight.onclick = function scrollRight () {
 
 
-        if (j >= 2 && j < 8){
-            cards.item(j).classList.remove('inactive-card')
-            cards.item(j+1).classList.remove('inactive-card')
-            cards.item(j-1).classList.add('inactive-card')
-            cards.item(j-2).classList.add('inactive-card')
+        if (cardValue >= pageSize && cardValue < cards.length){
+            cards.item(cardValue).classList.remove('inactive-card')
+            cards.item(cardValue+1).classList.remove('inactive-card')
+            cards.item(cardValue-1).classList.add('inactive-card')
+            cards.item(cardValue-2).classList.add('inactive-card')
         }
 
-        j += 2
-        listNumber.textContent = String(j / 2)
+        cardValue += pageSize
+        listNumber.textContent = String(Math.floor(cardValue / pageSize))
 
         //---------endless scroll right-------------
-        if (j > 8){
-            j = 2
-            cards.item(0).classList.remove('inactive-card')
-            cards.item(1).classList.remove('inactive-card')
-            cards.item(6).classList.add('inactive-card')
-            cards.item(7).classList.add('inactive-card')
-        }
+        // if (cardValue > cards.length){
+        //     cardValue = pageSize
+        //     cards.item(0).classList.remove('inactive-card')
+        //     cards.item(1).classList.remove('inactive-card')
+        //     cards.item(cards.length-pageSize).classList.add('inactive-card')
+        //     cards.item(cards.length-pageSize+1).classList.add('inactive-card')
+        // }
         //------------------------------------------
 
-        // if (j >= 8){
-        //     buttonRight.classList.add('nav-bar-inactive')
-        //     buttonRight.disabled = true
-        // }
-        // if( j < 8 && j > 0) {
-        //     buttonRight.classList.remove('nav-bar-inactive')
-        //     buttonRight.disabled = false
-        //     buttonLeft.classList.remove('nav-bar-inactive')
-        //     buttonLeft.disabled = false
-        // }
+        if (cardValue >= cards.length){
+            buttonRight.classList.add('nav-bar-inactive')
+            buttonRight.disabled = true
+        }
+        if( cardValue < cards.length && cardValue > 0) {
+            buttonRight.classList.remove('nav-bar-inactive')
+            buttonRight.disabled = false
+            buttonLeft.classList.remove('nav-bar-inactive')
+            buttonLeft.disabled = false
+        }
     }
 
 
 
     buttonLeft.onclick = function scrollLeft () {
-        j -= 2
+        cardValue -= pageSize
 
-        listNumber.textContent = String(j / 2)
-        if (j >= 2) {
-            cards.item(j).classList.add('inactive-card')
-            cards.item(j + 1).classList.add('inactive-card')
-            cards.item(j - 1).classList.remove('inactive-card')
-            cards.item(j - 2).classList.remove('inactive-card')
+        listNumber.textContent = String(Math.floor(cardValue / pageSize))
+        if (cardValue >= pageSize) {
+            cards.item(cardValue).classList.add('inactive-card')
+            cards.item(cardValue + 1).classList.add('inactive-card')
+            cards.item(cardValue - 1).classList.remove('inactive-card')
+            cards.item(cardValue - 2).classList.remove('inactive-card')
 
         }
 
         //--------endless scroll left--------
-        if (j < 2){
-            j = 8
-            cards.item(0).classList.add('inactive-card')
-            cards.item(1).classList.add('inactive-card')
-            cards.item(6).classList.remove('inactive-card')
-            cards.item(7).classList.remove('inactive-card')
-        }
+        // if (cardValue < pageSize){
+        //     cardValue = cards.length
+        //     cards.item(0).classList.add('inactive-card')
+        //     cards.item(1).classList.add('inactive-card')
+        //     cards.item(cards.length-pageSize).classList.remove('inactive-card')
+        //     cards.item(cards.length-pageSize+1).classList.remove('inactive-card')
+        // }
         //------------------------------------
 
-        // if (j <= 2) {
-        //     buttonLeft.classList.add('nav-bar-inactive')
-        //     buttonLeft.disabled = true
-        // }
-        // if (j > 2 && j <= 8) {
-        //     buttonRight.classList.remove('nav-bar-inactive')
-        //     buttonRight.disabled = false
-        //     buttonLeft.classList.remove('nav-bar-inactive')
-        //     buttonLeft.disabled = false
-        // }
+        if (cardValue <= pageSize) {
+            buttonLeft.classList.add('nav-bar-inactive')
+            buttonLeft.disabled = true
+        }
+        if (cardValue > pageSize && cardValue <= cards.length) {
+            buttonRight.classList.remove('nav-bar-inactive')
+            buttonRight.disabled = false
+            buttonLeft.classList.remove('nav-bar-inactive')
+            buttonLeft.disabled = false
+        }
 
     }
 
