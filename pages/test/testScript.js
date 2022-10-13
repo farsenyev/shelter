@@ -204,46 +204,73 @@ window.onload = function () {
 
     buttonRight.onclick = function scrollRight() {
 
-
-        if (cardValue >= pageSize && cardValue < cards.length) {
-            for (let i = 0; i <= pageSize; i++) {
-                if (i < pageSize) {
-                    cards.item(cardValue + i).classList.remove('inactive-card')
-                }
-                if (i > 0) {
-                    cards.item(cardValue - i).classList.add('inactive-card')
-
-                }
-                // cards.item(cardValue + 1).classList.remove('inactive-card')
-                // cards.item(cardValue - 2).classList.add('inactive-card')
-            }
-        }
-
         cardValue += pageSize
         listNumber.textContent = String(Math.floor(cardValue / pageSize))
 
         //---------endless scroll right-------------
-        if (screenWidth >= 1280) {
+        if (pageSize === 3) {
             // pageSize = 3, cardValue = 3
+            if (cardValue === 4) {
+                cards.item(6).classList.add('inactive-card')
+                cards.item(7).classList.add('inactive-card')
+            }
+            if (cardValue === 5){
+                cards.item(7).classList.add('inactive-card')
+            }
+            if (cardValue === 8){
+                for (let i = 0; i <= pageSize; i++) {
+                    if (i < pageSize) {
+                        cards.item(cardValue - pageSize + i).classList.remove('inactive-card')
+                    }
+                    if (i > 0) {
+                        cards.item(cardValue - pageSize - i).classList.add('inactive-card')
+                    }
+
+                }
+            }
+            if (cardValue > 10){
+                for (let i = cardValue - pageSize; i >= 2 * pageSize ; i --){
+                    cards.item( i - 1).classList.add('inactive-card')
+                }
+                cardValue = pageSize
+            }
+            console.log(cardValue)
+
+
             if (cardValue === 9 && cardValue - cards.length === 1) {
-                cards.item(cardValue - pageSize).classList.remove('inactive-card')
-                cards.item(cardValue - pageSize + 1).classList.remove('inactive-card')
-                cards.item(cardValue - cardValue).classList.remove('inactive-card')
-                cards.item(cardValue % pageSize ).classList.add('inactive-card')
-                cards.item(cardValue % pageSize + 1).classList.add('inactive-card')
-                cards.item(cardValue % pageSize + 2).classList.add('inactive-card')
+                for (let i = cardValue - pageSize; i < cardValue; i++) {
+                    let j = i
+                    if (i > cards.length - 1) {
+                        j = 0
+                    }
+                    cards.item(j).classList.remove('inactive-card')
+                    j++
+                }
+                for (let i = 0; i <= pageSize; i++) {
+                    if (i > 0) {
+                        cards.item(cardValue - pageSize - i).classList.add('inactive-card')
+                    }
+                }
                 cardValue = cardValue - cards.length
             }
-            if (cardValue === 10 && cardValue - cards.length === 2) {
-                cards.item(cardValue - pageSize).classList.remove('inactive-card')
-                cards.item(cardValue - cards.length - 1).classList.remove('inactive-card')
-                cards.item(cardValue - cardValue).classList.remove('inactive-card')
-                cards.item(cardValue - 2 * pageSize).classList.add('inactive-card')
-                cards.item(cardValue - 2 * pageSize + 1).classList.add('inactive-card')
-                cards.item(cardValue - 2 * pageSize + 2).classList.add('inactive-card')
 
+            if (cardValue === 10 && cardValue - cards.length === 2) {
+                for (let i = cardValue - pageSize; i < cardValue; i ++){
+                    let j = i
+                    if (i >= cards.length){
+                        j = Math.abs(i - cards.length)
+                    }
+                    cards.item(j).classList.remove('inactive-card')
+                    j ++
+                }
+                for (let i = 0; i <= pageSize; i++) {
+                    if (i > 0) {
+                        cards.item(cardValue - pageSize - i).classList.add('inactive-card')
+                    }
+                }
+                cardValue = cardValue - cards.length
             }
-        } else if (screenWidth < 1280 && screenWidth >= 768) {
+        } else if (cardValue === 2) {
             //pageSize = 2, cardValue = 2
             if (cardValue > cards.length) {
                 cardValue = pageSize
@@ -268,8 +295,21 @@ window.onload = function () {
             //     buttonLeft.classList.remove('nav-bar-inactive')
             //     buttonLeft.disabled = false
             // }
-        }
 
+
+        }
+        if (cardValue >= pageSize && cardValue < cards.length) {
+            for (let i = 0; i <= pageSize; i++) {
+                if (i < pageSize) {
+                    cards.item(cardValue - pageSize + i).classList.remove('inactive-card')
+                }
+                if (i > 0) {
+                    cards.item(cardValue - pageSize - i).classList.add('inactive-card')
+                }
+
+            }
+        }
+    }
 
         buttonLeft.onclick = function scrollLeft() {
             cardValue -= pageSize
@@ -304,8 +344,5 @@ window.onload = function () {
             //     buttonLeft.disabled = false
             // }
 
-        }
-
-
     }
-}
+ }
