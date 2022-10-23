@@ -8,6 +8,7 @@ let burgerButton,
     petName,
     petButton,
     rightButton,
+    leftButton,
     prev = [],
     current = [],
     prevAction = '',
@@ -15,7 +16,8 @@ let burgerButton,
     found,
     prevPet,
     currentPet,
-    pageSizePet
+    pageSizePet,
+    petId
 
 
 
@@ -26,9 +28,15 @@ function init() {
     burgerContainer = document.querySelector('#burger-container')
     burgerButton.onclick = menuShowen
     petContainer = document.getElementById('card-container')
-    cardShow()
+    cardShowVer()
     rightButton = document.querySelector('#nav-bar-right')
+    leftButton = document.querySelector('#nav-bar-left')
+
     rightButton.onclick = sliderMain
+    rightButton.onclick = moveRight
+
+    leftButton.onclick = sliderMain
+    leftButton.onclick = moveLeft
 
 
 }
@@ -73,6 +81,19 @@ function cardFiller(i){
     card.append(petButton);
 
     return card
+}
+
+function cardShowVer() {
+    while (prev.length < pageSize){
+        petId = getRandom(8)
+        found = prev.find(elem => elem === petId)
+        if (found === undefined){
+            prev.push(petId)
+        }
+    }
+    for (let i = 0; i < pageSize; i++){
+        petContainer.append(cardFiller(prev[i]))
+    }
 }
 
 function cardShow() {
