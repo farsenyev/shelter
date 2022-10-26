@@ -181,7 +181,7 @@
     background: #fff;
     border: 2px solid #F1CDB3;
 }
-#nav-bar-number{
+#nav-bar-number {
     background: #F1CDB3;
     font-family: 'Georgia', serif;
     font-style: normal;
@@ -189,7 +189,6 @@
     font-size: 20px;
     line-height: 115%;
 }
-
 .nav-bar-inactive{
     border: 2px solid #CDCDCD;
     border-radius: 100px;

@@ -285,7 +285,7 @@
         border-radius: 9px;
 
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: space-around;
         align-items: center;
     }
@@ -1187,15 +1187,11 @@
         border-radius: 9px;
 
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: space-around;
         align-items: center;
 
 
-    }
-
-    .card-hidden {
-        display: none;
     }
 
     .pets-learn-more {
@@ -2006,7 +2002,7 @@
     }
     .card{
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: space-around;
         align-items: center;
 

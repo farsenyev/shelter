@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Main</title>
     <script src="script.js" rel="script"></script>
+    <script src="jsonObj.js"></script>
     <link rel="stylesheet" href="../../pages/main/style.css">
 </head>
 <body>
@@ -66,25 +67,10 @@
         <article id="pets-content">
             <h3 id="pets-heading">Our pets who are looking for house</h3>
             <section id="pets-slider">
-                <button class="pets-arrow-button">
+                <button class="pets-arrow-button" id="right-button">
                     <p class="rotate-arrow">&#10142;</p>
                 </button>
-                <section class="card">
-                    <button class="pets-learn-more">Learn more</button>
-                    <h4 class="pet-name">Katrine</h4>
-                    <img src="../../assets/images/pets-katrine.png" alt="cat Katrine" class="pet-img">
-                </section>
-                <section class="card hidden-320" onclick="showModal()">
-                    <button class="pets-learn-more" id="lm-jen">Learn more</button>
-                    <h4 class="pet-name">Jenifer</h4>
-                    <img src="../../assets/images/pets-jennifer.png" alt="puppy Jenifer" class="pet-img">
-                </section>
-                <section class="card card-hidden hidden-320">
-                    <button class="pets-learn-more">Learn more</button>
-                    <h4 class="pet-name">Woody</h4>
-                    <img src="../../assets/images/pets-woody.png" alt="dog Woody" class="pet-img">
-                </section>
-                <button class="pets-arrow-button">
+                <button class="pets-arrow-button" id="left-button">
                     <p>&#10142;</p>
                 </button>
             </section>

@@ -4,6 +4,7 @@ let burgerButton,
     pageSize,
     petContainer,
     card,
+    cards,
     petImg,
     petName,
     petButton,
@@ -14,6 +15,7 @@ let burgerButton,
     prevAction = '',
     action,
     found,
+    foundCur,
     prevPet,
     currentPet,
     pageSizePet,
@@ -22,24 +24,32 @@ let burgerButton,
 
 
 function init() {
-    screenWidth()
+
     burgerButton = document.querySelector('#burger-button')
     menuShow = document.querySelector('#burger')
     burgerContainer = document.querySelector('#burger-container')
-    burgerButton.onclick = menuShowen
     petContainer = document.getElementById('card-container')
-    cardShowVer()
     rightButton = document.querySelector('#nav-bar-right')
     leftButton = document.querySelector('#nav-bar-left')
 
-    rightButton.onclick = sliderMain
-    rightButton.onclick = moveRight
 
-    leftButton.onclick = sliderMain
-    leftButton.onclick = moveLeft
+    screenWidth()
+    cardShowVer()
+
+    cards = document.querySelectorAll('.card')
+    burgerButton.onclick = menuShowen
+
+    rightButton.addEventListener("click", moveRight)
+    rightButton.addEventListener("click", sliderMain)
+
+    leftButton.addEventListener("click", moveLeft)
+    leftButton.addEventListener("click", sliderMain)
+
+
 
 
 }
+
 function screenWidth() {
     if (window.screen.width > 1280){
         pageSize = 3
@@ -84,41 +94,32 @@ function cardFiller(i){
 }
 
 function cardShowVer() {
-    while (prev.length < pageSize){
+    while (current.length < pageSize){
         petId = getRandom(8)
-        found = prev.find(elem => elem === petId)
+        found = current.find(elem => elem === petId)
         if (found === undefined){
-            prev.push(petId)
+            current.push(petId)
         }
     }
     for (let i = 0; i < pageSize; i++){
-        petContainer.append(cardFiller(prev[i]))
+        petContainer.append(cardFiller(current[i]))
     }
-}
-
-function cardShow() {
-    while (prev.length < pageSize){
-        cardFiller(getRandom(8))
-        found = prev.find(elem => elem.name )
-        if (found === undefined){
-            prev.push(card)
-            petContainer.append(card)
-        }
-
-    }
-
 }
 
 function moveRight() {
     action = 'right'
+    console.log(action)
 }
 function moveLeft(){
     action = 'left'
+    console.log(action)
+
 }
 
-function sliderMain(action, pageSize) {
-
+function sliderMain() {
+    console.log('work!!')
     if (prevAction !== action){
+        console.log('change')
         let side = current
         current = prev
         prev = side
@@ -126,12 +127,19 @@ function sliderMain(action, pageSize) {
         prev = current
         current = []
         while (current.length < pageSize){
-            cardFiller(getRandom)
-            if (!prev.includes(card) && !current.includes(card)){
-                current.push(card)
+            petId = getRandom(8)
+            found = prev.find(elem => elem === petId)
+            foundCur = current.find(elem => elem === petId)
+            if (found === undefined && foundCur === undefined){
+                current.push(petId)
             }
+            foundCur = found = ''
         }
     }
+    for (let i = 0; i < current.length; i++){
+        cards.item(i).replaceWith(cardFiller(current[i]))
+    }
+    cards = document.querySelectorAll('.card')
     prevAction = action
 }
 
