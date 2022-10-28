@@ -3,6 +3,8 @@ let burgerButton,
     burgerContainer,
     pageSize,
     petContainer,
+    pageIndex,
+    pageNumber,
     card,
     cards,
     petImg,
@@ -10,6 +12,8 @@ let burgerButton,
     petButton,
     rightButton,
     leftButton,
+    startButton,
+    endButton,
     prev = [],
     current = [],
     prevAction = '',
@@ -25,48 +29,44 @@ let burgerButton,
 
 function init() {
 
-    burgerButton = document.querySelector('#burger-button')
-    menuShow = document.querySelector('#burger')
-    burgerContainer = document.querySelector('#burger-container')
+    // burgerButton = document.querySelector('#burger-button')
+    // menuShow = document.querySelector('#burger')
+    // burgerContainer = document.querySelector('#burger-container')
     petContainer = document.getElementById('card-container')
     rightButton = document.querySelector('#nav-bar-right')
     leftButton = document.querySelector('#nav-bar-left')
-
+    startButton = document.querySelector('#start-button')
+    endButton = document.querySelector('#end-button')
+    pageIndex = document.querySelector('#nav-bar-number')
+    pageNumber = 1
 
     screenWidth()
-    cardShowVer()
+    massiveFiller()
+    cardShowPets()
 
     cards = document.querySelectorAll('.card')
-    burgerButton.onclick = menuShowen
 
-    rightButton.addEventListener("click", moveRight)
-    rightButton.addEventListener("click", sliderMain)
+    rightButton.addEventListener("click", slideRight)
+    rightButton.addEventListener("click", sliderPets)
 
-    leftButton.addEventListener("click", moveLeft)
-    leftButton.addEventListener("click", sliderMain)
+    leftButton.addEventListener("click", slideLeft)
+    leftButton.addEventListener("click", sliderPets)
 
+    startButton.addEventListener("click", slideStart)
+    startButton.addEventListener("click", sliderPets)
 
-
-
+    endButton.addEventListener("click", slideEnd)
+    endButton.addEventListener("click", sliderPets)
 }
 
 function screenWidth() {
     if (window.screen.width > 1280){
-        pageSize = 3
+        pageSize = 8
     }else if (window.screen.width >= 768 && window.screen.width < 1280){
-        pageSize = 2
+        pageSize = 6
     }else{
-        pageSize = 1
+        pageSize = 3
     }
-}
-function menuShowen() {
-    burgerButton.classList.toggle("b-button-close")
-    burgerButton.classList.toggle("b-button")
-
-    menuShow.classList.toggle("nav-show")
-    menuShow.classList.toggle("nav-hide")
-
-    burgerContainer.classList.toggle("bc-open")
 }
 
 function getRandom(value) {
@@ -93,57 +93,127 @@ function cardFiller(i){
     return card
 }
 
-function cardShowVer() {
-    while (current.length < pageSize){
-        petId = getRandom(8)
-        found = current.find(elem => elem === petId)
-        if (found === undefined){
-            current.push(petId)
-        }
+function cardShowPets() {
+    for (let i = 0; i < pageSize; i ++){
+        petContainer.append(cardFiller(prev[i]))
     }
-    for (let i = 0; i < pageSize; i++){
-        petContainer.append(cardFiller(current[i]))
-    }
-}
-
-function moveRight() {
-    action = 'right'
-    console.log(action)
-}
-function moveLeft(){
-    action = 'left'
-    console.log(action)
+    pageIndex.textContent = String(pageNumber)
+    leftButton.disabled = pageNumber <= 1
+    startButton.disabled = pageNumber <= 1
 
 }
 
-function sliderMain() {
-    console.log('work!!')
-    if (prevAction !== action){
-        console.log('change')
-        let side = current
-        current = prev
-        prev = side
-    }else{
-        prev = current
-        current = []
+function massiveFiller(){
+    while (prev.length < 48){
         while (current.length < pageSize){
             petId = getRandom(8)
-            found = prev.find(elem => elem === petId)
             foundCur = current.find(elem => elem === petId)
-            if (found === undefined && foundCur === undefined){
+            if (foundCur === undefined){
                 current.push(petId)
             }
-            foundCur = found = ''
+            foundCur = ''
         }
+        prev = prev.concat(current)
+        current = []
     }
-    for (let i = 0; i < current.length; i++){
-        cards.item(i).replaceWith(cardFiller(current[i]))
+
+}
+
+function sliderPets() {
+    let f = 0
+    for (let i = pageSize * (pageNumber - 1); i < pageSize * pageNumber; i++){
+        cards.item(f).replaceWith(cardFiller(prev[i]))
+        console.log(f)
+        f ++
     }
     cards = document.querySelectorAll('.card')
-    prevAction = action
+    pageIndex.textContent = String(pageNumber)
+    console.log(pageNumber)
+    rightButton.disabled = pageNumber >= 48 / pageSize
+    endButton.disabled = pageNumber >= 48 / pageSize
+    leftButton.disabled = pageNumber <= 1
+    startButton.disabled = pageNumber <= 1
+}
+
+function slideRight() {
+    pageNumber ++
+}
+
+function slideLeft(){
+    pageNumber --
+}
+
+function slideEnd(){
+    pageNumber = 48 / pageSize
+}
+
+function slideStart(){
+    pageNumber = 1
 }
 
 window.onload = init
+
+// function menuShowen() {
+//     burgerButton.classList.toggle("b-button-close")
+//     burgerButton.classList.toggle("b-button")
+//
+//     menuShow.classList.toggle("nav-show")
+//     menuShow.classList.toggle("nav-hide")
+//
+//     burgerContainer.classList.toggle("bc-open")
+// }
+//
+// function cardShowVer() {
+//     while (current.length < pageSize){
+//         petId = getRandom(8)
+//         found = current.find(elem => elem === petId)
+//         if (found === undefined){
+//             current.push(petId)
+//         }
+//     }
+//     for (let i = 0; i < pageSize; i++){
+//         petContainer.append(cardFiller(current[i]))
+//     }
+// }
+//
+// function moveRight() {
+//     action = 'right'
+//     console.log(action)
+// }
+// function moveLeft(){
+//     action = 'left'
+//     console.log(action)
+//
+// }
+//
+// function sliderMain() {
+//     console.log('work!!')
+//     if (prevAction !== action){
+//         console.log('change')
+//         let side = current
+//         current = prev
+//         prev = side
+//     }else{
+//         prev = current
+//         current = []
+//         while (current.length < pageSize){
+//             petId = getRandom(8)
+//             found = prev.find(elem => elem === petId)
+//             foundCur = current.find(elem => elem === petId)
+//             if (found === undefined && foundCur === undefined){
+//                 current.push(petId)
+//             }
+//             foundCur = found = ''
+//         }
+//     }
+//     for (let i = 0; i < current.length; i++){
+//         cards.item(i).replaceWith(cardFiller(current[i]))
+//     }
+//     cards = document.querySelectorAll('.card')
+//     prevAction = action
+// }
+
+//---------------------------------------------------------
 
 //
 //

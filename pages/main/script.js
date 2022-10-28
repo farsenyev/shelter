@@ -1,4 +1,7 @@
-let pageSize,
+let burgerButton,
+    menuShow,
+    burgerContainer,
+    pageSize,
     petContainer,
     card,
     cards,
@@ -16,6 +19,10 @@ let pageSize,
     petId
 
 function init() {
+    burgerButton = document.querySelector('#burger-button')
+    menuShow = document.querySelector('#burger')
+    burgerContainer = document.querySelector('#burger-container')
+
     petContainer = document.querySelector('#pets-slider')
     rightButton = document.querySelector('#right-button')
     leftButton = document.querySelector('#left-button')
@@ -23,12 +30,24 @@ function init() {
     screenWidth()
     cardShowVer()
 
+    burgerButton.onclick = menuShowen
+
     cards = document.querySelectorAll('.card')
     rightButton.addEventListener("click", moveRight)
     rightButton.addEventListener("click", sliderMain)
 
     leftButton.addEventListener("click", moveLeft)
     leftButton.addEventListener("click", sliderMain)
+}
+
+function menuShowen() {
+    burgerButton.classList.toggle("b-button-close")
+    burgerButton.classList.toggle("b-button")
+
+    menuShow.classList.toggle("nav-show")
+    menuShow.classList.toggle("nav-hide")
+
+    burgerContainer.classList.toggle("bc-open")
 }
 
 function getRandom(value) {
