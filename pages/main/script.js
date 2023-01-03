@@ -3,11 +3,7 @@ let burgerButton,
     burgerContainer,
     pageSize,
     petContainer,
-    card,
     cards,
-    petImg,
-    petName,
-    petButton,
     rightButton,
     leftButton,
     prev = [],
@@ -19,13 +15,13 @@ let burgerButton,
     petId
 
 function init() {
-    burgerButton = document.querySelector('#burger-button')
-    menuShow = document.querySelector('#burger')
-    burgerContainer = document.querySelector('#burger-container')
+    burgerButton = document.getElementById('burger-button')
+    menuShow = document.getElementById('burger')
+    burgerContainer = document.getElementById('burger-container')
 
-    petContainer = document.querySelector('#pets-slider')
-    rightButton = document.querySelector('#right-button')
-    leftButton = document.querySelector('#left-button')
+    petContainer = document.getElementById('pets-slider')
+    rightButton = document.getElementById('right-button')
+    leftButton = document.getElementById('left-button')
 
     screenWidth()
     cardShowVer()
@@ -33,19 +29,16 @@ function init() {
     burgerButton.onclick = menuShowen
 
     cards = document.querySelectorAll('.card')
+
     rightButton.addEventListener("click", moveRight)
-    rightButton.addEventListener("click", sliderMain)
 
     leftButton.addEventListener("click", moveLeft)
-    leftButton.addEventListener("click", sliderMain)
 }
 
 function menuShowen() {
     burgerButton.classList.toggle("b-button-close")
-    burgerButton.classList.toggle("b-button")
 
     menuShow.classList.toggle("nav-show")
-    menuShow.classList.toggle("nav-hide")
 
     burgerContainer.classList.toggle("bc-open")
 }
@@ -88,7 +81,7 @@ function cardShowVer() {
     while (current.length < pageSize){
         petId = getRandom(8)
         found = current.find(elem => elem === petId)
-        if (found === undefined){
+        if (!found){
             current.push(petId)
         }
     }
@@ -99,9 +92,11 @@ function cardShowVer() {
 
 function moveRight() {
     action = 'right'
+    sliderMain()
 }
 function moveLeft(){
     action = 'left'
+    sliderMain()
 }
 
 function sliderMain() {
@@ -116,7 +111,7 @@ function sliderMain() {
             petId = getRandom(8)
             found = prev.find(elem => elem === petId)
             foundCur = current.find(elem => elem === petId)
-            if (found === undefined && foundCur === undefined){
+            if (!found && !foundCur){
                 current.push(petId)
             }
             foundCur = found = ''

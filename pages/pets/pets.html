@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Pets</title>
     <link rel="stylesheet" href="../../pages/pets/stylesPets.css">
+    <script src="../../pages/pets/jsonObj.js"></script>
+    <script src="../../pages/pets/script.js"></script>
 </head>
 <body>
     <header>
@@ -16,7 +18,7 @@
                 </a>
             </section>
             <nav>
-                <a class="nav-link" href="../main/main.html#about">About shelter</a>
+                <a class="nav-link" href="../main/main.html#about">About the shelter</a>
                 <a class="nav-link" id="active-link">Our pets</a>
                 <a class="nav-link" href="../main/main.html#help">Help the shelter</a>
                 <a class="nav-link" href="#footer">Contacts</a>
@@ -40,54 +42,13 @@
             <h3 id="pets-heading">Our friends who
                 <br>
                 are looking for a house</h3>
-            <section id="card-container">
-                <article class="pet-card">
-                    <img src="../../assets/images/pets-katrine.png" alt="cat" class="pet-img">
-                    <p class="pet-name">Katrine</p>
-                    <button class="learn-more">Learn more</button>
-                </article>
-                <article class="pet-card">
-                    <img src="../../assets/images/pets-jennifer.png" alt="cat" class="pet-img">
-                    <p class="pet-name">Jenifer</p>
-                    <button class="learn-more">Learn more</button>
-                </article>
-                <article class="pet-card">
-                    <img src="../../assets/images/pets-woody.png" alt="cat" class="pet-img">
-                    <p class="pet-name">Woody</p>
-                    <button class="learn-more">Learn more</button>
-                </article>
-                <article class="pet-card hidden-320">
-                    <img src="../../assets/images/pets-sophia.png" alt="cat" class="pet-img">
-                    <p class="pet-name">Sophia</p>
-                    <button class="learn-more">Learn more</button>
-                </article>
-                <article class="pet-card hidden-320">
-                    <img src="../../assets/images/pets-timmy.png" alt="cat" class="pet-img">
-                    <p class="pet-name">Timmy</p>
-                    <button class="learn-more">Learn more</button>
-                </article>
-                <article class="pet-card hidden-320">
-                    <img src="../../assets/images/pets-charly.png" alt="cat" class="pet-img">
-                    <p class="pet-name">Charly</p>
-                    <button class="learn-more">Learn more</button>
-                </article>
-                <article class="pet-card inactive-card hidden-320">
-                    <img src="../../assets/images/pets-scarlet.png" alt="cat" class="pet-img">
-                    <p class="pet-name">Scarlett</p>
-                    <button class="learn-more">Learn more</button>
-                </article>
-                <article class="pet-card inactive-card hidden-320">
-                    <img src="../../assets/images/pets-freddie.png" alt="cat" class="pet-img">
-                    <p class="pet-name">Freddie</p>
-                    <button class="learn-more">Learn more</button>
-                </article>
-            </section>
+            <section id="card-container"></section>
             <section id="navigation-bar">
-                <button class="nav-bar-pets nav-bar-inactive"><<</button>
-                <button class="nav-bar-pets nav-bar-inactive"><</button>
-                <button class="nav-bar-pets nav-bar-active" id="nav-bar-number">1</button>
-                <button class="nav-bar-pets nav-bar-active">></button>
-                <button class="nav-bar-pets nav-bar-active">>></button>
+                <button class="nav-bar-pets" id="start-button"><<</button>
+                <button class="nav-bar-pets" id="nav-bar-left"><</button>
+                <button class="nav-bar-pets" id="nav-bar-number"></button>
+                <button class="nav-bar-pets" id="nav-bar-right">></button>
+                <button class="nav-bar-pets" id="end-button">>></button>
             </section>
         </article>
     </section>

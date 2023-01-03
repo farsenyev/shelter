@@ -1684,7 +1684,7 @@
 
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
 
         z-index: 1;
@@ -1734,21 +1734,91 @@
     #nav-menu{
         display: none;
     }
+
     #burger-container{
-        /*position: relative;*/
-        /*overflow: hidden;*/
-        width: 30px;
-        height: 22px;
-        background: #F1CDB3;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
     }
-    #toggle{
+    #burger-button{
+        width: 30px;
+        height: 30px;
+        border: 0;
+        background: rgba(0,0,0,0);
+
+        z-index: 3;
+    }
+    #burger-button span,
+    #burger-button span:before,
+    #burger-button span:after{
+        display: block;
+        position: relative;
+
+        background: #F1CDB3;
+        height: 2px;
+        opacity: 1;
+        transition: 0.3s ease-in-out;
+    }
+    #burger-button span:before,
+    #burger-button span:after{
+        content: "";
+    }
+    #burger-button span{
+        width: 30px;
+        right: 0;
+    }
+    #burger-button span:before{
+        left: 0;
+        top: -10px;
+        width: 30px;
+    }
+    #burger-button span:after{
+        left: 0;
+        top: 10px;
+        width: 30px;
+    }
+    .b-button-close{
+        transform: rotate(-90deg);
+        /*margin-left: 100px;*/
+    }
+    .nav-hide{
         display: none;
     }
-    #toggle:checked{
+    .nav-show{
+        width: 320px;
+        height: 832px;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        background: #292929;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
     }
-    #burger{
-        display: none;
+    .burger-a{
+        font-family: 'Arial', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 160%;
+
+        color: #CDCDCD;
+
+        text-decoration: none;
+
+        margin-top: 30px;
+    }
+    .activated{
+        border-bottom: solid 3px #F1CDB3;
     }
 
     #start-screen{
@@ -2383,8 +2453,8 @@
 
 }
 /*-----------------------------------
-    animations
-    -----------------------------------*/
+           animations
+-----------------------------------*/
 
 .a-nav-menu:hover{
     color: #FAFAFA;
@@ -2418,3 +2488,4 @@
 .close-button:hover{
     background: #F1CDB3;
 }
+
