@@ -19,9 +19,14 @@ let burgerButton,
     pets = [],
     current = [],
     foundCur,
-    petId
+    petId,
+    tryButton,
+    tryContainer
 
 function init() {
+    tryButton = document.getElementById('button-try')
+    tryContainer = document.getElementById('try-container')
+    tryButton.onclick = showTry
 
     burgerButton = document.querySelector('#burger-button')
     menuShow = document.querySelector('#burger')
@@ -37,7 +42,34 @@ function init() {
     modalContainer.classList.add('modal-container')
     petContainer.after(modalContainer)
 
-    burgerButton.onclick = menuShow
+    burgerButton.onclick = function(){
+
+        let width = 320
+
+        if (!burgerContainer.classList.contains('bc-open')){
+            menuShowen()
+            animate({
+                duration: 500,
+                timing: makeEaseOut(quad),
+                draw(progress){
+                    burgerContainer.style.right = width * progress + 'px'
+                }
+            })
+        }else{
+            animate({
+                duration: 500,
+                timing: makeEaseOut(quad),
+                draw(progress){
+                    burgerContainer.style.right = width * (1 - progress) + 'px'
+                }
+            })
+            setTimeout(function(){
+                menuShowen()
+            },500)
+
+        }
+    }
+
 
     screenWidth()
     fillMassive()
@@ -65,6 +97,11 @@ function init() {
     initCloseButton()
     modalOverlay.onclick = hideModalOverlay
 
+}
+
+function showTry(){
+    tryContainer.classList.toggle('try-hide')
+    tryContainer.classList.toggle('try-show')
 }
 
 function screenWidth() {
@@ -276,17 +313,46 @@ function slideStart(){
     pageNumber = 1
 }
 
-window.onload = init
+function menuShowen() {
+    burgerButton.classList.toggle("b-button-close")
+    burgerButton.classList.toggle("b-button")
 
-// function menuShowen() {
-//     burgerButton.classList.toggle("b-button-close")
-//     burgerButton.classList.toggle("b-button")
-//
-//     menuShow.classList.toggle("nav-show")
-//     menuShow.classList.toggle("nav-hide")
-//
-//     burgerContainer.classList.toggle("bc-open")
-// }
+    menuShow.classList.toggle("nav-show")
+    menuShow.classList.toggle("nav-hide")
+
+    burgerContainer.classList.toggle("bc-open")
+}
+
+function makeEaseOut(timing) {
+    return function(timeFraction) {
+        return 1 - timing(1 - timeFraction);
+    }
+}
+function quad(timeFraction) {
+    return Math.pow(timeFraction, 2);
+}
+function animate(options) {
+
+    let start = performance.now();
+
+    requestAnimationFrame(function animate(time) {
+        // timeFraction от 0 до 1
+        let timeFraction = (time - start) / options.duration;
+        if (timeFraction > 1) timeFraction = 1;
+
+        // текущее состояние анимации
+        let progress = options.timing(timeFraction)
+
+        options.draw(progress);
+
+        if (timeFraction < 1) {
+            requestAnimationFrame(animate);
+        }
+
+    });
+}
+
+window.onload = init
 //
 // function cardShowVer() {
 //     while (current.length < pageSize){

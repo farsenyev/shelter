@@ -19,13 +19,18 @@ let burgerButton,
     pets = [],
     current = [],
     foundCur,
-    petId
+    petId,
+    burgerA,
+    burgerOverlay
 
 function init() {
+    burgerButton = document.getElementById('burger-button')
+    menuShow = document.getElementById('burger')
+    burgerContainer = document.getElementById('burger-container')
+    burgerA = document.getElementsByClassName('burger-a')
+    burgerOverlay = document.createElement('section')
+    document.body.append(burgerOverlay)
 
-    // burgerButton = document.querySelector('#burger-button')
-    // menuShow = document.querySelector('#burger')
-    // burgerContainer = document.querySelector('#burger-container')
     petContainer = document.getElementById('card-container')
     rightButton = document.querySelector('#nav-bar-right')
     leftButton = document.querySelector('#nav-bar-left')
@@ -33,17 +38,19 @@ function init() {
     endButton = document.querySelector('#end-button')
     pageIndex = document.querySelector('#nav-bar-number')
     pageNumber = 1
+
     modalContainer = document.createElement('section')
     modalContainer.classList.add('modal-container')
     petContainer.after(modalContainer)
 
-    // burgerButton.onclick = menuShow
-
     screenWidth()
     fillMassive()
     createModalWindows()
-
+    menuAInit()
     cardShowPets()
+
+    burgerButton.onclick = menuShowen
+    burgerOverlay.onclick = menuHide
 
     cards = document.getElementsByClassName('card')
     rightButton.addEventListener("click", slideRight)
@@ -63,8 +70,35 @@ function init() {
 
     initButtonLM()
     initCloseButton()
-    modalOverlay.onclick = hideModalOverlay
+    modalOverlay.addEventListener("click", hideModalOverlay)
+    modalOverlay.addEventListener("click", menuHide)
 
+}
+
+function menuShowen() {
+    burgerButton.classList.toggle("b-button-close")
+
+    menuShow.classList.toggle("nav-show")
+
+    burgerContainer.classList.toggle("bc-open")
+
+    burgerOverlay.classList.toggle('burger-overlay')
+}
+
+function menuAInit(){
+    for (let i = 0; i < burgerA.length; i++){
+        burgerA[i].addEventListener("click", menuShowen)
+    }
+}
+
+function menuHide() {
+    burgerButton.classList.remove("b-button-close")
+
+    menuShow.classList.remove("nav-show")
+
+    burgerContainer.classList.remove("bc-open")
+
+    burgerOverlay.classList.remove('burger-overlay')
 }
 
 function screenWidth() {
@@ -109,7 +143,7 @@ function createModalWindows(){
         petImg.setAttribute('alt', petsJson[i].type + ' ' + petsJson[i].name);
 
         let petName = document.createElement('h3')
-        petName.classList.add('pet-name');
+        petName.classList.add('pet-modal-name');
         petName.textContent = petsJson[i].name;
 
         let petType = document.createElement('h4')
@@ -122,19 +156,23 @@ function createModalWindows(){
 
         let petAge = document.createElement('h5')
         petAge.classList.add('pet-age');
-        petAge.textContent = 'Age: ' + petsJson[i].age;
+        let age = 'Age: '
+        petAge.innerHTML = age.bold() + petsJson[i].age;
 
         let petInoc = document.createElement('h5')
         petInoc.classList.add('pet-inoculation');
-        petInoc.textContent = 'Inoculation: ' + petsJson[i].inoculations;
+        let inn = 'Inoculation: '
+        petInoc.innerHTML = inn.bold() + petsJson[i].inoculations;
 
         let petDeseas = document.createElement('h5')
         petDeseas.classList.add('pet-diseases');
-        petDeseas.textContent = 'Diseases: ' + petsJson[i].diseases;
+        let dis = 'Diseases: '
+        petDeseas.innerHTML = dis.bold() + petsJson[i].diseases;
 
         let petParasites = document.createElement('h5')
         petParasites.classList.add('pet-parasites');
-        petParasites.textContent = 'Parasites: ' + petsJson[i].parasites;
+        let par = 'Parsites: '
+        petParasites.innerHTML = par.bold() + petsJson[i].parasites;
 
         let content = document.createElement('section')
         content.classList.add('pet-modal-content')

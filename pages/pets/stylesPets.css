@@ -126,7 +126,7 @@
     #pets-heading{
         width: 400px;
         height: 90px;
-        margin: 0;
+        margin: -9px 0 0 0;
 
         font-family: 'Georgia', serif;
         font-style: normal;
@@ -220,7 +220,7 @@
     #navigation-bar{
         width: 340px;
         height: 52px;
-        margin: 0;
+        margin: 0 0 10px 0;
 
         display: flex;
         flex-direction: row;
@@ -311,6 +311,64 @@
     }
 
 
+    .pet-modal-name{
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 35px;
+        line-height: 130%;
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+        margin: 0 0 10px 0;
+    }
+    .pet-type{
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 115%;
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+        margin: 0;
+    }
+    .pet-descr{
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 110%;
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+        margin: 40px 0;
+    }
+    .pet-age, .pet-inoculation, .pet-diseases, .pet-parasites {
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 110%;
+
+        letter-spacing: 0.06em;
+        margin: 10px 0 0 0;
+
+        display: list-item;
+        list-style: none outside none;
+
+    }
+    .pet-age::before, .pet-inoculation::before, .pet-diseases::before, .pet-parasites::before{
+        content: "\2022";
+        color: #F1CDB3;
+        margin-right: 10px;
+
+    }
+
+
     footer{
         height: 350px;
 
@@ -322,12 +380,12 @@
         align-items: center;
     }
     #footer-content{
-        width: 1200px;
+        width: 820px;
         height: 310px;
 
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
     }
     #footer-contacts{
@@ -340,14 +398,14 @@
         align-items: flex-start;
     }
     #footer-contacts-heading{
-        width: 278px;
+        width: 280px;
         height: 90px;
         margin: 0;
 
         font-family: 'Georgia', serif;
         font-style: normal;
         font-weight: 400;
-        font-size: 30px;
+        font-size: 35px;
         line-height: 130%;
 
         letter-spacing: 0.06em;
@@ -411,6 +469,7 @@
     #footer-location{
         width: 302px;
         height: 234px;
+        margin: 0 79px 0 0;
 
         display: flex;
         flex-direction: column;
@@ -425,7 +484,7 @@
         font-family: 'Georgia', serif;
         font-style: normal;
         font-weight: 400;
-        font-size: 30px;
+        font-size: 35px;
         line-height: 130%;
 
         letter-spacing: 0.06em;
@@ -512,6 +571,7 @@
     #header{
         height: 60px;
         width: 708px;
+        margin: 29px 0 0 0;
 
         display: flex;
         flex-direction: row;
@@ -603,7 +663,7 @@
     }
 
     #pets{
-        height: 100%;
+        height: 1734px;
         width: 100%;
 
         display: flex;
@@ -632,6 +692,7 @@
         align-items: center;
         text-align: center;
         letter-spacing: 0.06em;
+        margin: 16px 0 0 0;
     }
 
     #card-container{
@@ -641,7 +702,7 @@
         align-items: center;
         flex-wrap: wrap;
         z-index: 0;
-        /*width: 1200px;*/
+        width: 580px;
 
 
         margin: 0 auto;
@@ -656,6 +717,7 @@
 
         width: 270px;
         height: 435px;
+        margin: 0 0 30px 0;
 
     }
     .pet-name{
@@ -664,6 +726,7 @@
         font-weight: 400;
         font-size: 20px;
         line-height: 23px;
+        margin: 0;
 
         display: flex;
         align-items: center;
@@ -710,9 +773,9 @@
 
 
     #navigation-bar{
-        width: 340px;
+        width: 360px;
         height: 52px;
-        margin: 20px auto;
+        margin: 40px 0 45px 0;
 
         display: flex;
         flex-direction: row;
@@ -761,19 +824,19 @@
         justify-content: space-around;
         align-items: center;
         align-self: flex-start;
+
         width: 630px;
         height: 350px;
 
         background: #ffffff;
     }
     .modal-pet-img{
-        display: none;
-        width: 500px;
-        height: 500px;
+        width: 350px;
+        height: 350px;
     }
     .pet-modal-content{
-        width: 351px;
-        height: 362px;
+        width: 260px;
+        height: 350px;
     }
     .modal-overlay{
         background: rgba(0, 0, 0, 0.4);
@@ -788,6 +851,80 @@
         overflow: hidden;
     }
 
+    .modal-show{
+        width: 690px;
+        height: 402px;
+
+        z-index: 5;
+        position: fixed;
+        top: 10%;
+        left: 5%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+
+    .pet-modal-name{
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 35px;
+        line-height: 130%;
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+        margin: 10px 0 10px 0;
+    }
+    .pet-type{
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 115%;
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+        margin: 0;
+    }
+    .pet-descr{
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 110%;
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+        margin: 20px 0 15px 0;
+    }
+    .pet-age, .pet-inoculation, .pet-diseases, .pet-parasites {
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 110%;
+
+        letter-spacing: 0.06em;
+        margin: 5px 0 0 0;
+
+        display: list-item;
+        list-style: none outside none;
+
+    }
+    .pet-age::before, .pet-inoculation::before, .pet-diseases::before, .pet-parasites::before{
+        content: "\2022";
+        color: #F1CDB3;
+        margin-right: 10px;
+
+    }
+
+
 
     footer{
         height: 639px;
@@ -796,11 +933,11 @@
 
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
     }
     #footer-content{
-        width: 708px;
+        width: 645px;
         height: 234px;
 
         display: flex;
@@ -809,7 +946,7 @@
     }
     #footer-contacts{
         width: 278px;
-        height: 234px;
+        height: 268px;
 
         display: flex;
         flex-direction: column;
@@ -830,11 +967,12 @@
         /* color-light-xl */
 
         color: #FFFFFF;
-        margin-bottom: 0;
+        margin: 32px 0 0 0;
     }
     #footer-contacts-mail, #footer-contacts-phone{
         width: 251px;
         height: 32px;
+        margin: 0 0 0 2px;
     }
     #footer-contacts-mail a{
         display: flex;
@@ -858,8 +996,12 @@
         letter-spacing: 0.06em;
 
         color: #F1CDB3;
-
-        margin: 0 auto;
+    }
+    #footer-mail-name{
+        margin: 0;
+    }
+    #footer-phone-number{
+        margin: 0 11px 0 0;
     }
     #footer-contacts-phone a{
         display: flex;
@@ -871,7 +1013,7 @@
     }
     #footer-location{
         width: 302px;
-        height: 234px;
+        height: 278px;
 
         display: flex;
         flex-direction: column;
@@ -881,6 +1023,7 @@
     #footer-location-boston, #footer-location-london{
         width: 302px;
         height: 46px;
+        margin: 0 0 0 -2px;
     }
     #footer-location-boston a{
         display: flex;
@@ -937,7 +1080,7 @@
 
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
     }
     #header{
@@ -947,6 +1090,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        white-space: nowrap;
     }
     #logo a{
         width: 100%;
@@ -958,6 +1102,7 @@
         align-items: center;
 
         text-decoration: none;
+        margin: 0 0 0 6px;
     }
     #header-title{
         margin: 0;
@@ -991,20 +1136,102 @@
         display: none;
     }
     #burger-container{
-        /*position: relative;*/
-        /*overflow: hidden;*/
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    #burger-button{
         width: 30px;
-        height: 22px;
-        background: #F1CDB3;
-    }
-    #toggle{
-        display: none;
-    }
-    #toggle:checked{
+        height: 30px;
+        border: 0;
+        background: rgba(0,0,0,0);
+        z-index: 3;
 
     }
-    #burger{
+    #burger-button span,
+    #burger-button span:before,
+    #burger-button span:after{
+        display: block;
+        position: relative;
+
+        background: #000000;
+        height: 2px;
+        opacity: 1;
+        transition: 0.3s ease-in-out;
+    }
+    #burger-button span:before,
+    #burger-button span:after{
+        content: "";
+    }
+    #burger-button span{
+        width: 30px;
+        right: 0;
+    }
+    #burger-button span:before{
+        left: 0;
+        top: -12px;
+        width: 30px;
+    }
+    #burger-button span:after{
+        left: 0;
+        top: 10px;
+        width: 30px;
+    }
+    .b-button-close{
+        transform: rotate(-90deg);
+        /*margin-left: 100px;*/
+    }
+    .nav-hide{
         display: none;
+    }
+    .nav-show{
+        width: 320px;
+        height: 832px;
+        z-index: 2;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        background: #292929;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .burger-a{
+        font-family: 'Arial', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 160%;
+
+        color: #CDCDCD;
+
+        text-decoration: none;
+
+        margin-top: 30px;
+    }
+
+    .burger-overlay{
+        background: rgba(0, 0, 0, 0.4);
+
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    .activated{
+        border-bottom: solid 3px #F1CDB3;
     }
 
     #pets{
@@ -1035,18 +1262,19 @@
         align-items: center;
         text-align: center;
         letter-spacing: 0.06em;
-
+        margin: 0;
         color: #545454;
     }
 
     #card-container{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         z-index: 0;
         /*width: 1200px;*/
+        height: 1410px;
 
 
         margin: 0 auto;
@@ -1074,6 +1302,7 @@
         align-items: center;
         text-align: center;
         letter-spacing: 0.06em;
+        margin: 0;
 
         color: #545454;
     }
@@ -1115,9 +1344,9 @@
 
 
     #navigation-bar{
-        width: 340px;
+        width: 310px;
         height: 52px;
-        margin: 20px auto;
+        margin: 40px 0 0 -5px;
 
         display: flex;
         flex-direction: row;
@@ -1166,18 +1395,17 @@
         justify-content: space-around;
         align-items: center;
         align-self: flex-start;
-        width: 900px;
-        height: 500px;
+        width: 240px;
+        height: 400px;
 
         background: #ffffff;
     }
     .modal-pet-img{
-        width: 500px;
-        height: 500px;
+        display: none;
     }
     .pet-modal-content{
-        width: 351px;
-        height: 362px;
+        width: 220px;
+        height: 341px;
     }
     .modal-overlay{
         background: rgba(0, 0, 0, 0.4);
@@ -1188,23 +1416,86 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 3;
+        z-index: 1;
         overflow: hidden;
     }
 
     .modal-show {
-        width: 952px;
-        height: 552px;
+        width: 270px;
+        height: 450px;
 
         z-index: 5;
         position: fixed;
-        top: 20%;
-        left: 20%;
+        top: 15%;
+        left: 10%;
 
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-end;
+    }
+
+
+    .pet-modal-name{
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 35px;
+        line-height: 45px;
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+        text-align: center;
+        margin: 0 0 10px 0;
+    }
+    .pet-type{
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+        text-align: center;
+        margin: 0;
+    }
+    .pet-descr{
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 14px;
+
+        text-align: justify;
+        letter-spacing: 0.06em;
+
+        color: #000000;
+        margin: 20px 0 15px 0;
+    }
+    .pet-age, .pet-inoculation, .pet-diseases, .pet-parasites {
+        font-family: 'Georgia', serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 110%;
+
+        letter-spacing: 0.06em;
+
+        color: #000000;
+        margin: 5px 0 0 0;
+
+        display: list-item;
+        list-style: none outside none;
+
+    }
+    .pet-age::before, .pet-inoculation::before, .pet-diseases::before, .pet-parasites::before{
+        content: "\2022";
+        color: #F1CDB3;
+        margin-right: 10px;
+
     }
 
 
@@ -1215,18 +1506,19 @@
 
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
 
         background: url("../../assets/images/start-screen-background.jpg"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
     }
     #footer-content{
-        height: 800px;
+        height: 480px;
         width: 300px;
+        margin: 30px 0 0 0;
 
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
     }
     #footer-contacts{
@@ -1262,6 +1554,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
+        margin: 4px 0 0 0;
 
         text-decoration: none;
     }
@@ -1299,7 +1592,7 @@
         align-items: flex-start;
     }
     #footer-location-heading{
-        margin: 0;
+        margin: -11px 0 0 11px;
         width: 278px;
 
         font-family: 'Georgia', serif;
@@ -1316,6 +1609,7 @@
     #footer-location-boston{
         width: 300px;
         height: 46px;
+        margin: 17px 0 0 0;
     }
     #footer-location-boston a, #footer-location-london a{
         width: 300px;
@@ -1332,19 +1626,23 @@
         height: 32px;
     }
     #footer-boston, #footer-london{
-        margin: 0;
-
         font-family: 'Georgia', serif;
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
         line-height: 115%;
 
-        text-align: end;
+        text-align: start;
 
         letter-spacing: 0.06em;
 
         color: #F1CDB3;
+    }
+    #footer-boston{
+        margin: -7px 0 0 20px;
+    }
+    #footer-london{
+        margin: 8px 31px 0 0;
     }
     #footer-img{
         height: 269px;
@@ -1352,7 +1650,7 @@
 }
 
 /*-----------------------------------
-animations
+            animations
 -----------------------------------*/
 
 .nav-link:hover{
@@ -1374,172 +1672,3 @@ animations
     overflow: hidden;
 }
 
-/*#card-container{*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    flex-wrap: wrap;*/
-/*    z-index: 0;*/
-/*    width: 1200px;*/
-
-
-/*    margin: 0 auto;*/
-/*}*/
-
-/*.card{*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: space-around;*/
-/*    align-items: center;*/
-/*    flex-wrap: wrap;*/
-
-/*    width: 270px;*/
-/*    height: 435px;*/
-
-/*}*/
-/*.pet-name{*/
-/*    font-family: 'Georgia', serif;*/
-/*    font-style: normal;*/
-/*    font-weight: 400;*/
-/*    font-size: 20px;*/
-/*    line-height: 23px;*/
-
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    text-align: center;*/
-/*    letter-spacing: 0.06em;*/
-
-/*    color: #545454;*/
-/*}*/
-/*.pets-learn-more {*/
-/*    font-family: 'Georgia', serif;*/
-/*    font-style: normal;*/
-/*    font-weight: 400;*/
-/*    font-size: 17px;*/
-/*    line-height: 130%;*/
-/*    white-space: nowrap;*/
-/*    letter-spacing: 0.06em;*/
-
-/*    box-sizing: border-box;*/
-
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    padding: 15px 45px;*/
-/*    gap: 10px;*/
-
-/*    width: 187px;*/
-/*    height: 52px;*/
-
-/*    border: 2px solid #F1CDB3;*/
-/*    border-radius: 100px;*/
-
-/*    flex: none;*/
-/*    order: 0;*/
-/*    flex-grow: 0;*/
-/*}*/
-/*.pet-img {*/
-/*    border-radius: 9px 9px 0 0;*/
-
-/*    z-index: 1;*/
-/*}*/
-/*.inactive-card{*/
-/*    display: none;*/
-/*}*/
-
-
-/*#navigation-bar{*/
-/*    width: 340px;*/
-/*    height: 52px;*/
-/*    margin: 20px auto;*/
-
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-around;*/
-/*    align-items: center;*/
-/*}*/
-/*.nav-bar-pets{*/
-/*    box-sizing: border-box;*/
-
-/*    width: 52px;*/
-/*    height: 52px;*/
-
-/*    border-radius: 100px;*/
-/*    background: #fff;*/
-/*    border: 2px solid #F1CDB3;*/
-/*}*/
-/*#nav-bar-number {*/
-/*    background: #F1CDB3;*/
-/*    font-family: 'Georgia', serif;*/
-/*    font-style: normal;*/
-/*    font-weight: 400;*/
-/*    font-size: 20px;*/
-/*    line-height: 115%;*/
-/*}*/
-/*.nav-bar-inactive{*/
-/*    border: 2px solid #CDCDCD;*/
-/*    border-radius: 100px;*/
-/*    color: #CDCDCD;*/
-/*}*/
-
-/*.pet-window{*/
-/*    display: none;*/
-/*}*/
-/*.modal-close{*/
-/*    border: 2px solid #F1CDB3;*/
-/*    border-radius: 100px;*/
-/*    align-self: flex-end;*/
-
-/*    width: 52px;*/
-/*    height: 52px;*/
-/*}*/
-/*.pet-modal{*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-around;*/
-/*    align-items: center;*/
-/*    align-self: flex-start;*/
-/*    width: 900px;*/
-/*    height: 500px;*/
-
-/*    background: #ffffff;*/
-/*}*/
-/*.modal-pet-img{*/
-/*    width: 500px;*/
-/*    height: 500px;*/
-/*}*/
-/*.pet-modal-content{*/
-/*    width: 351px;*/
-/*    height: 362px;*/
-/*}*/
-/*.modal-overlay{*/
-/*    background: rgba(0, 0, 0, 0.4);*/
-
-/*    display: block;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    position: fixed;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    z-index: 3;*/
-/*    overflow: hidden;*/
-/*}*/
-/*.modal-overlay-hide{*/
-/*    !*display: none;*!*/
-/*}*/
-
-/*.modal-show {*/
-/*    width: 952px;*/
-/*    height: 552px;*/
-
-/*    z-index: 5;*/
-/*    position: fixed;*/
-/*    top: 20%;*/
-/*    left: 20%;*/
-
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: flex-end;*/
-/*    align-items: flex-end;*/
-/*}
